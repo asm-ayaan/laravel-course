@@ -22,3 +22,12 @@ Route::get('/post/{postId}/comment/{commentId?}', function($postId, $commentId =
     return "Post ID: $postId - Comment Id: $commentId";
 })->name('post');
 
+/**
+ * 1. get
+ * 2. post
+ * 3. PUT
+ * 4. PATCH
+ * 5. DELETE
+ * 
+ */
+
