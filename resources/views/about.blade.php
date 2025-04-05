@@ -1,3 +1,33 @@
-<div>
-    <h1>About Page</h1>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    @php
+       $name = "ayaan khan";
+       $planets = ['Mercury', 'Venus', 'Erth', 'Mars', 'Jupiter'];
+    @endphp
+
+    <h1>Name: {{ $name }}</h1>
+
+    <ul>
+        @foreach($planets as $planet)
+            <li>{{ $planet }}</li>
+        @endforeach
+    </ul>
+
+    @if(false)
+    <ul>
+        @for($i = 1; $i <= 10; $i++)
+        <li>{{ $i }}</li>
+        @endfor
+    </ul>
+    @endif
+    
+</body>
+</html>
