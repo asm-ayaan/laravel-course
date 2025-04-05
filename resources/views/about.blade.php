@@ -8,11 +8,6 @@
 </head>
 <body>
 
-    @php
-       $name = "ayaan khan";
-       $planets = ['Mercury', 'Venus', 'Erth', 'Mars', 'Jupiter'];
-    @endphp
-
     <h1>Name: {{ $name }}</h1>
 
     <ul>

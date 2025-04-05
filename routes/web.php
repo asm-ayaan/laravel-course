@@ -11,7 +11,12 @@ Route::get('/home', function() {
 });
 
 Route::get('/about', function() {
-    return view('about');
+    $name = "ayaan khan";
+    $planets = ['Mercury', 'Venus', 'Erth', 'Mars', 'Jupiter'];
+
+    // return view('about', ['my_name' => $name, 'planets' => $planets]);
+    return view('about', compact('name', 'planets'));
+
 });
 
 Route::get('/contact', function() {
