@@ -25,3 +25,13 @@ Route::get('/blog/create', function() {
     return $blog;
 
 });
+
+Route::get('/blog', function(){
+    // $blogs = Blog::all();
+    // $blogs = Blog::first();
+    $blogs = Blog::select(['id', 'title', 'description' ])->get();
+
+
+
+    return $blogs;
+});
