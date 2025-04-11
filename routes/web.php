@@ -30,8 +30,15 @@ Route::get('/blog', function(){
     // $blogs = Blog::all();
     // $blogs = Blog::first();
     $blogs = Blog::select(['id', 'title', 'description' ])->get();
-
-
-
     return $blogs;
+});
+
+Route::get('/blog/update/{id}', function($id){
+    $blog = Blog::findOrFail($id);
+    $blog->title = 'this is updated title 2';
+    $blog->description = 'this is updated description 2';
+    $blog->image = 'test test';
+    $blog->save();
+
+    return $blog;
 });
