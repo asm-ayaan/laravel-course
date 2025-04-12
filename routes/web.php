@@ -27,9 +27,9 @@ Route::get('/blog/create', function() {
 });
 
 Route::get('/blog', function(){
-    // $blogs = Blog::all();
+    $blogs = Blog::all();
     // $blogs = Blog::first();
-    $blogs = Blog::select(['id', 'title', 'description' ])->get();
+    // $blogs = Blog::select(['id', 'title', 'description' ])->get();
     return $blogs;
 });
 
@@ -41,4 +41,11 @@ Route::get('/blog/update/{id}', function($id){
     $blog->save();
 
     return $blog;
+});
+
+Route::get('/blog/delete/{id}', function($id){
+    $blog = Blog::find($id);
+    $blog->delete();
+
+    return 'success';
 });
