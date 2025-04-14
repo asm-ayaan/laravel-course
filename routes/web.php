@@ -4,6 +4,8 @@ use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Blog;
+use App\Models\Company;
+use App\Models\User;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -27,9 +29,10 @@ Route::get('/blog/create', function() {
 });
 
 Route::get('/blog', function(){
-    $blogs = Blog::all();
+    // $blogs = Blog::all();
     // $blogs = Blog::first();
-    // $blogs = Blog::select(['id', 'title', 'description' ])->get();
+    // $blogs = Blog::select(['id', 'title', 'description' ])->get();\
+    $blogs = Blog::where('id', 1)->where('title', 'this is updated title 2')->get();
     return $blogs;
 });
 
@@ -48,4 +51,12 @@ Route::get('/blog/delete/{id}', function($id){
     $blog->delete();
 
     return 'success';
+});
+
+
+
+Route::get('user', function() {
+    $user = User::find(1);
+    
+    return view('user', compact('user'));
 });
