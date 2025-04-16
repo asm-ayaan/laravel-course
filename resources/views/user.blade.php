@@ -7,12 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    Name: {{ $user->name }}
-    <br>
-    Email: {{ $user->email }}
-    <br>
-    Company: {{ $user->company->name }}
-    <br>
-    Address: {{ $user->company->address }}
+   <i>Name:</i> {{ $user->name }}
+   <br>
+   <i>Email:</i> {{ $user->email }}
+
+   <h6>User Posts</h6>
+   <div style="display: flex">
+    @foreach($user->posts as $post)
+        <div style="border: 1px solid black; height:300px; width:300px; margin-right:10px">
+            <h3>{{ $post->title }}</h3>
+            <p>{{ $post->body }}</p>
+        </div>
+    @endforeach
+   </div>
+
 </body>
 </html>

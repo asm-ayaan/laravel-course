@@ -16,47 +16,50 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about', [AboutController::class, 'about'])->name('about');
 
-Route::get('/blog/create', function() {
-    // create data with eloquent orm
-    $blog = new Blog();
-    $blog->title = 'this is our first blog 2';
-    $blog->description = 'this is a test descripiton 2';
-    $blog->image = '/uploads/test.php';
-    $blog->save();
+// Route::get('/blog/create', function() {
+//     // create data with eloquent orm
+//     $blog = new Blog();
+//     $blog->title = 'this is our first blog 2';
+//     $blog->description = 'this is a test descripiton 2';
+//     $blog->image = '/uploads/test.php';
+//     $blog->save();
 
-    return $blog;
+//     return $blog;
 
-});
+// });
 
-Route::get('/blog', function(){
-    // $blogs = Blog::all();
-    // $blogs = Blog::first();
-    // $blogs = Blog::select(['id', 'title', 'description' ])->get();\
-    $blogs = Blog::where('id', 1)->where('title', 'this is updated title 2')->get();
-    return $blogs;
-});
+// Route::get('/blog', function(){
+//     // $blogs = Blog::all();
+//     // $blogs = Blog::first();
+//     // $blogs = Blog::select(['id', 'title', 'description' ])->get();\
+//     $blogs = Blog::where('id', 1)->where('title', 'this is updated title 2')->get();
+//     return $blogs;
+// });
 
-Route::get('/blog/update/{id}', function($id){
-    $blog = Blog::findOrFail($id);
-    $blog->title = 'this is updated title 2';
-    $blog->description = 'this is updated description 2';
-    $blog->image = 'test test';
-    $blog->save();
+// Route::get('/blog/update/{id}', function($id){
+//     $blog = Blog::findOrFail($id);
+//     $blog->title = 'this is updated title 2';
+//     $blog->description = 'this is updated description 2';
+//     $blog->image = 'test test';
+//     $blog->save();
 
-    return $blog;
-});
+//     return $blog;
+// });
 
-Route::get('/blog/delete/{id}', function($id){
-    $blog = Blog::find($id);
-    $blog->delete();
+// Route::get('/blog/delete/{id}', function($id){
+//     $blog = Blog::find($id);
+//     $blog->delete();
 
-    return 'success';
-});
+//     return 'success';
+// });
 
 
 
 Route::get('user', function() {
+    // $user = User::find(1);
+    // $company = Company::find(1);
+
     $user = User::find(1);
-    
+
     return view('user', compact('user'));
 });
