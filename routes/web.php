@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Blog;
 use App\Models\Company;
+use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 
 // Route::get('/', function () {
@@ -62,4 +64,17 @@ Route::get('user', function() {
     $user = User::find(1);
 
     return view('user', compact('user'));
+});
+
+Route::get('posts', function(){
+    $post = Post::find(2);
+
+    $post->tags()->attach([1]);
+
+    return $post;
+});
+
+Route::get('post-tags', function(){
+    $posts = Tag::find(1)->posts;
+    return $posts;
 });
