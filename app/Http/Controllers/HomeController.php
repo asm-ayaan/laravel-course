@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     function index() {
-        $posts = Blog::all();
+        $posts = Post::all();
         echo $posts;
         return view('home');
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\Blog;
@@ -78,3 +79,6 @@ Route::get('post-tags', function(){
     $posts = Tag::find(1)->posts;
     return $posts;
 });
+
+
+Route::get('/form', [FormController::class, 'index'])->name('form.index');
