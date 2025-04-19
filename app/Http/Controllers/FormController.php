@@ -9,4 +9,8 @@ class FormController extends Controller
     function index() {
        return view('form.index'); 
     }
+
+    function store(Request $request) {
+        return $request;
+    }       
 }

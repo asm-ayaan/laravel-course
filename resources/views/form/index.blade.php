@@ -6,8 +6,10 @@
             <div class="card-header">
                 <h4>Form</h4>
             </div>
+
             <div class="card-body">
-                <form action="">
+                <form action="{{ route('form.store') }}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label for="">Title</label>
                         <input type="text" name="title" class="form-control">

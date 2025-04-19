@@ -82,3 +82,4 @@ Route::get('post-tags', function(){
 
 
 Route::get('/form', [FormController::class, 'index'])->name('form.index');
+Route::post('/form-store', [FormController::class, 'store'])->name('form.store');
