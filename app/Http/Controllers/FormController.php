@@ -12,22 +12,26 @@ class FormController extends Controller
     }
 
     function store(Request $request) {
-        $request->validate([
-            // 'title' => 'required|min:5|max:20',
-            'title' => ['required', 'min:5', 'max:20'],
+        // $request->validate([
+        //     // 'title' => 'required|min:5|max:20',
+        //     'title' => ['required', 'min:5', 'max:20'],
 
-            'description' => 'required|min:5|max:2000'
-        ], [
-            'title.required' => 'Hey your are missing this field',
-            'title.min' => 'title must be getter then :min careacters',
-            'title.max' => 'title must be less then :max careacters', 
-        ]); 
-        
-        $post = new Post();
-        $post->title = $request->title;
-        $post->body = $request->description;
-        $post->user_id = 1;
-        $post->save();
+        //     'description' => 'required|min:5|max:2000'
+        // ], [
+        //     'title.required' => 'Hey your are missing this field',
+        //     'title.min' => 'title must be getter then :min careacters',
+        //     'title.max' => 'title must be less then :max careacters', 
+        // ]); 
+
+
+        // $post = new Post();
+        // $post->title = $request->title;
+        // $post->body = $request->description;
+        // $post->user_id = 1;
+        // $post->save();
+
+        $image = $request->file('image');
+        $image->store('/images', 'public');
 
         return 'success';
     }       

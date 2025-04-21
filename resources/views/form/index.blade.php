@@ -15,7 +15,7 @@
             </div>
 
             <div class="card-body">
-                <form action="{{ route('form.store') }}" method="POST">
+                <form action="{{ route('form.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="">Title</label>
@@ -30,6 +30,9 @@
                         @error('description')
                                 <i class="text-danger">{{ $message }}</i>
                         @enderror
+                    </div>
+                    <div>
+                        <input type="file" class="form-control mt-2" name="image">
                     </div>
                     <button type="submit" class="btn btn-primary mt-2">Submit</button>
                 </form>
