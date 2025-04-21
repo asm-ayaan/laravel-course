@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
@@ -13,7 +14,7 @@ class FormController extends Controller
     function store(Request $request) {
         $request->validate([
             // 'title' => 'required|min:5|max:20',
-            'title' => ['required', 'min:20', 'max:20'],
+            'title' => ['required', 'min:5', 'max:20'],
 
             'description' => 'required|min:5|max:2000'
         ], [
@@ -21,6 +22,13 @@ class FormController extends Controller
             'title.min' => 'title must be getter then :min careacters',
             'title.max' => 'title must be less then :max careacters', 
         ]); 
-        return $request;
+        
+        $post = new Post();
+        $post->title = $request->title;
+        $post->body = $request->description;
+        $post->user_id = 1;
+        $post->save();
+
+        return 'success';
     }       
 }
